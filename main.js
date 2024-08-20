@@ -6,6 +6,16 @@ const cardsContainer = cardsMain.querySelector(".container");
 const messageWindow = document.querySelector(".message-window");
 const messageText = document.querySelector(".message-window .message");
 const closeMsgBtn = document.querySelector(".close-window");
+const recordsDiv = document.querySelector(".record");
+const triesRecord = recordsDiv.querySelector(".tries_record");
+const timeRecord = recordsDiv.querySelector(".time_record");
+const NUMBER_OF_TRIES = 20;
+const NUMBER_OF_CARDS = 10;
+let timerSeconds = 0;
+const stateRecord = {
+  bestTime: 0,
+  bestTries: 0,
+};
 let numberOfTries;
 let checkedCards = [];
 let showedCards = 0;
@@ -15,8 +25,17 @@ function initShowAllCards() {
   cards.forEach((card) => card.classList.add("correct"));
   setTimeout(
     () => cards.forEach((card) => card.classList.remove("correct")),
-    3000
+    10000
   );
+}
+
+function getRecord() {}
+
+function updateRecord() {}
+
+function displayRecord() {
+  triesRecord.textContent = stateRecord.bestTries;
+  timeRecord.textContent = stateRecord.bestTime;
 }
 
 function toggleMessageWindow() {
@@ -29,6 +48,7 @@ function makeWinWindow() {
       color: black;
   `;
 }
+
 function makeloseWindow() {
   messageWindow.style.cssText = `
     background-color: crimson;
@@ -74,13 +94,26 @@ function shuffleCards() {
 }
 
 function init() {
-  numberOfTries = 20;
+  numberOfTries = NUMBER_OF_TRIES;
+  showedCards = 0;
+  displayTries();
   shuffleCards();
   initShowAllCards();
-  displayTries();
 }
 
+const timer = function () {
+  setInterval(() => {
+    timerSeconds++;
+    console.log(timerSeconds);
+  }, 1000);
+};
+
 init();
+
+// Start time record
+setTimeout(() => {
+  timer();
+}, 10000);
 
 closeMsgBtn.addEventListener("click", () => {
   toggleMessageWindow();
@@ -113,18 +146,24 @@ cardsContainer.addEventListener("click", function (e) {
     showedCards++;
 
     // Check if all cards were showed
-    if (showedCards === 10) {
+    if (showedCards === NUMBER_OF_CARDS) {
+      // show win message
       showMessage();
-      numberOfTries = 20;
-      displayTries();
-      showedCards = 0;
+
+      // Update state record
+      stateRecord.bestTries = NUMBER_OF_TRIES - numberOfTries;
+      stateRecord.bestTime = timerSeconds;
+      clearInterval(timer);
+      displayRecord();
+
+      // reset the game
       setTimeout(() => {
-        toggleMessageWindow();
-        shuffleCards();
-      }, 10000);
+        init();
+      }, 5000);
     }
+
+    // Just remove class "checked" to prevent adding it to checked array and cause a bug
     checkedCards.forEach((card) => {
-      // Just remove class "checked" to prevent adding it to checked array and cause a bug
       hideSelectedCard(card);
 
       // Add a class to show this card
