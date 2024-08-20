@@ -38,9 +38,35 @@ header .tries {
   font-size: 20px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1380px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  header .tries {
+    font-size: 18px;
+  }
+  header .game_title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1180px) {
   .container {
     width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  header .tries {
+    font-size: 18px;
+  }
+  header .game_title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    width: 90%;
     margin: 0 auto;
     padding: 10px;
   }
@@ -56,8 +82,8 @@ footer {
   background-color: var(--bg-gray);
   position: fixed;
   bottom: 0;
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: space-evenly;
   width: 100vw;
   padding: 10px 0;
 }
@@ -75,6 +101,7 @@ main .container {
   justify-content: center;
   align-items: center;
   gap: 25px;
+  height: 100%;
 }
 
 main .icon-card {
@@ -86,12 +113,31 @@ main .icon-card {
   position: relative;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 950px) {
   main .container {
-    gap: 15px;
+    gap: 10px;
+    width: 100%;
   }
   main .icon-card {
-    width: 100px;
+    width: 110px;
+  }
+}
+@media (max-width: 530px) {
+  main .container {
+    gap: 10px;
+    width: 100%;
+  }
+  main .icon-card {
+    width: 90px;
+  }
+}
+@media (max-width: 430px) {
+  main .container {
+    gap: 7px;
+    width: 100%;
+  }
+  main .icon-card {
+    width: 80px;
   }
 }
 
@@ -123,13 +169,31 @@ main .icon-card i {
   font-size: 100px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 950px) {
   main .icon-card i {
-    font-size: 80px;
+    font-size: 70px;
   }
 
   main .icon-card::after {
-    font-size: 90px;
+    font-size: 70px;
+  }
+}
+@media (max-width: 530px) {
+  main .icon-card i {
+    font-size: 70px;
+  }
+
+  main .icon-card::after {
+    font-size: 70px;
+  }
+}
+@media (max-width: 450px) {
+  main .icon-card i {
+    font-size: 50px;
+  }
+
+  main .icon-card::after {
+    font-size: 60px;
   }
 }
 
