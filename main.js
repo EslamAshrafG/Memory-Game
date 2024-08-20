@@ -84,9 +84,6 @@ init();
 
 closeMsgBtn.addEventListener("click", () => {
   toggleMessageWindow();
-  if (showedCards === 10) {
-    shuffleCards();
-  }
 });
 
 cardsContainer.addEventListener("click", function (e) {
