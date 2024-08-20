@@ -96,6 +96,7 @@ function shuffleCards() {
 function init() {
   numberOfTries = NUMBER_OF_TRIES;
   showedCards = 0;
+  timer = 0;
   displayTries();
   shuffleCards();
   initShowAllCards();
