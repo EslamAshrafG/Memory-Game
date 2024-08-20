@@ -151,7 +151,7 @@ main .icon-card {
   text-align: center;
   left: 50%;
   top: -150px;
-  font-size: 22px;
+  font-size: 18px;
   border-radius: 15px;
   transform: translateX(-50%);
   text-transform: capitalize;
@@ -167,7 +167,7 @@ main .icon-card {
   background-color: black;
   padding: 5px;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 22px;
   width: 25px;
   display: grid;
   place-content: center;
@@ -177,4 +177,12 @@ main .icon-card {
 
 .show_window {
   top: 50px;
+}
+
+@media (max-width: 500px) {
+  .message-window {
+    left: 48%;
+    padding: 10px;
+    font-size: 17px;
+  }
 }
