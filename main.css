@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-gray: rgb(224, 222, 222);
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+header {
+  width: 100vw;
+  background-color: var(--bg-gray);
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .tries {
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  header .tries {
+    font-size: 18px;
+  }
+  header .game_title {
+    font-size: 20px;
+  }
+}
+
+footer {
+  background-color: var(--bg-gray);
+  position: fixed;
+  bottom: 0;
+  display: grid;
+  place-content: center;
+  width: 100vw;
+  padding: 10px 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+main .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+main .icon-card {
+  border: 3px solid rgb(36, 144, 144);
+  padding: 5px;
+  aspect-ratio: 1 / 1;
+  width: 150px;
+  cursor: pointer;
+  position: relative;
+}
+
+@media (max-width: 450px) {
+  main .container {
+    gap: 15px;
+  }
+  main .icon-card {
+    width: 100px;
+  }
+}
+
+main .icon-card:hover {
+  opacity: 0.7;
+}
+
+main .icon-card::after {
+  content: "?";
+  display: grid;
+  place-content: center;
+  font-size: 120px;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: black;
+  color: white;
+  width: 100%;
+  transition: all 0.5s;
+}
+main .icon-card.checked::after,
+main .icon-card.correct::after {
+  content: "";
+  width: 0;
+}
+main .icon-card i {
+  font-size: 100px;
+}
+
+@media (max-width: 450px) {
+  main .icon-card i {
+    font-size: 80px;
+  }
+
+  main .icon-card::after {
+    font-size: 90px;
+  }
+}
+
+main .icon-card {
+  display: grid;
+  place-content: center;
+}
+
+.message-window {
+  position: fixed;
+  background-color: crimson;
+  color: white;
+  padding: 20px;
+  width: max-content;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  left: 50%;
+  top: -150px;
+  font-size: 22px;
+  border-radius: 15px;
+  transform: translateX(-50%);
+  text-transform: capitalize;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.close-window {
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: black;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 16px;
+  width: 25px;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+
+.show_window {
+  top: 50px;
+}
