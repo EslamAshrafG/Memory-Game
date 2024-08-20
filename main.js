@@ -118,7 +118,7 @@ cardsContainer.addEventListener("click", function (e) {
     // Check if all cards were showed
     if (showedCards === 10) {
       showMessage();
-      numberOfTries = 0;
+      numberOfTries = 30;
       setTimeout(() => {
         toggleMessageWindow();
         shuffleCards();
