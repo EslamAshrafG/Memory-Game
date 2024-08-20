@@ -74,7 +74,7 @@ function shuffleCards() {
 }
 
 function init() {
-  numberOfTries = 30;
+  numberOfTries = 20;
   shuffleCards();
   initShowAllCards();
   displayTries();
@@ -115,7 +115,7 @@ cardsContainer.addEventListener("click", function (e) {
     // Check if all cards were showed
     if (showedCards === 10) {
       showMessage();
-      numberOfTries = 30;
+      numberOfTries = 20;
       displayTries();
       showedCards = 0;
       setTimeout(() => {
