@@ -116,6 +116,8 @@ cardsContainer.addEventListener("click", function (e) {
     if (showedCards === 10) {
       showMessage();
       numberOfTries = 30;
+      displayTries();
+      showedCards = 0;
       setTimeout(() => {
         toggleMessageWindow();
         shuffleCards();
@@ -146,7 +148,6 @@ cardsContainer.addEventListener("click", function (e) {
       setTimeout(() => {
         init();
       }, 5000);
-      // init();
     }
 
     // Show both cards to help player and then hide them
